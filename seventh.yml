@@ -1,0 +1,14 @@
+- name: Using condition
+  hosts: all
+  gather_facts: yes
+  become: yes
+  tasks:
+    - name: print debug
+      debug:
+        msg: Printing this when condition is true
+        when: ansible_hostname == "node1"
+
+    - name: print debug2
+      debug:
+        msg: Printing this when condition is false
+

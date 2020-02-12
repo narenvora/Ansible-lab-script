@@ -1,0 +1,10 @@
+- name: install and configure the  webserver
+  hosts: all
+  become: yes
+  tasks:
+    - yum:  name=httpd state=present
+
+    - service: name=httpd state=started enabled=yes
+    
+    - copy: content="hi there" dest=/var/www/html/index.html
+   

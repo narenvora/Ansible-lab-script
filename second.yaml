@@ -1,0 +1,10 @@
+- name: print something
+  hosts: all
+  vars:
+    pkg1: httpd 
+  tasks:
+    - debug:
+        msg: hi there {{ pkg1 }}
+
+    - debug:
+        msg: test msge {{ pkg1 }}

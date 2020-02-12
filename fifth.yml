@@ -1,0 +1,20 @@
+- name: using facts
+  hosts: all
+  gather_facts: yes
+  tasks:
+    - debug:
+        # msg: this machine hostname is {{ ansible_hostname }} this machine bootname is {{ ansible_cmdline.BOOT_IMAGE }}
+        
+    - debug:
+          msg: FQDN of this machine is {{ ansible_fqdn }}
+
+    - debug:
+          msg: IP address of this server is {{ ansible_all_ipv4_addresses }}
+
+    - debug:      
+          msg: Memory Size of host is {{ ansible_memtotal_mb }}
+
+
+    - debug:      
+          msg: Memory Size of host is {{ ansible_memtotal_mb }}
+

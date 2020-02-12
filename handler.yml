@@ -1,0 +1,23 @@
+- name: using handler
+  hosts: all
+  become: yes
+  tasks:
+    - name: install the package
+      yum:
+        name: httpd
+        state: latest
+      notify:
+        - handl #should be same as used in handler
+
+    - name: print hi
+      debug:
+        msg: "hello there"
+
+
+
+  handlers:
+    - name: handl # Should be same as defined above
+      service:
+        name: httpd
+        state: started
+        enabled: yes

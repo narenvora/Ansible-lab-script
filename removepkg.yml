@@ -1,0 +1,14 @@
+- name: Ansible script to remove package
+  hosts: all
+  become: yes
+
+  tasks: 
+    - name: remove
+      yum:
+      - name: httpd
+        state: absent
+        register: TestVar
+
+    - name:
+        debug:
+        var: TestVar

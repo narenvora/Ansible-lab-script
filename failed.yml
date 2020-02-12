@@ -1,0 +1,17 @@
+- name: install software
+  hosts: all
+  become: yes
+  tasks:
+    - name: install the software
+      yum:
+        name: httpd
+        state: present
+      register: val1
+      failed_when: val1.msg == false
+
+
+    - name: print something
+      debug:
+        msg: task not executed
+
+

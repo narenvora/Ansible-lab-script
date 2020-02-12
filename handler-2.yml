@@ -1,0 +1,16 @@
+- name: using handler with debug
+  hosts: all
+  become: yes
+  tasks:
+    - name: print hi
+      debug:
+        msg: "hello there"
+      changed_when: true
+      notify:
+        - handl #should be same as used in handler
+
+
+  handlers:
+    - name: handl # Should be same as defined above
+      debug:
+        msg: "Handler working"
